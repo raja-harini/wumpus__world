@@ -11,11 +11,16 @@ wumpus=[["Save","Breeze","PIT","Breeze"],
         ["Smell","Save","Breeze","Save"],
         ["WUMPUS","GOLD","PIT","Breeze"],
         ["Smell","Save","Breeze","PIT"]]
-//Initial Variables:TYPE THE CODE HERE BY REFERRING BELOW STATEMENTS
-//[row and column store the player's current position (starting at the top-left corner).
-//arrow = True means the player has an arrow available to kill the Wumpus.
-//player = True controls the game loop.
-//score = 0 starts the player's score at zero.]
+#Initial Variables:TYPE THE CODE HERE BY REFERRING BELOW STATEMENTS
+#[row and column store the player's current position (starting at the top-left corner).
+#arrow = True means the player has an arrow available to kill the Wumpus.
+#player = True controls the game loop.
+#score = 0 starts the player's score at zero.]
+# Initial Variables
+row, column = 0, 0  # player's current position at the top-left corner
+arrow = True  # player has an arrow available to kill the Wumpus
+player = True  # controls the game loop
+score = 0  # starts the player's score at zero
 while(player):
     choice=input("press u to move up\npress d to move down\npress l to move left\npress r to move right\n")
     if choice == "u":
@@ -110,7 +115,11 @@ while(player):
               ,"\n")
         break
     if(wumpus[row][column]=='GOLD'):
-        //TYPE THE CODE HERE( If the player reaches the tile with gold, they win and gain 1000 points. The game ends.)
+        #TYPE THE CODE HERE( If the player reaches the tile with gold, they win and gain 1000 points. The game ends.)
+        score += 1000
+        print("Congratulations! You found the gold.\nYour score is: ", score)
+        player = False  # End the game
+        break
     if(wumpus[row][column]=='PIT'):
         score-=1000
         print("Ahhhhh!!!!\nYou fell in pit.\nAnd your score is: ",score,"\n")
